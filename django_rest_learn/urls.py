@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('product-list/',productview.productList_view),
-    path('product/<int:pk>',productview.product_view)
+    path('product/<int:pk>',productview.product_view),
+    path('product-create/',productview.productCreate_view),
 ]
