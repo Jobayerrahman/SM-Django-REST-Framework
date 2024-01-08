@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from product import views as productview
 from employee import views as employeeview
+from invoice import views as invoiceview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,7 @@ urlpatterns = [
     path('product/<int:pk>',productview.product_view),
     path('product-create/',productview.productCreate_view),
     path('employee/',employeeview.employee_view),   
-    path('employee/<int:pk>',employeeview.employee_view),   
+    path('employee/<int:pk>',employeeview.employee_view),
+    path('invoice/',invoiceview.Invoice_view.as_view()),
+    path('invoice/<int:pk>',invoiceview.Invoice_view.as_view()),
 ]
