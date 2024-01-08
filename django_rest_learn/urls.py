@@ -19,6 +19,7 @@ from django.urls import path, include
 from product import views as productview
 from employee import views as employeeview
 from invoice import views as invoiceview
+from inventory import views as inventoryview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,10 @@ urlpatterns = [
     path('employee/<int:pk>',employeeview.employee_view),
     path('invoice/',invoiceview.Invoice_view.as_view()),
     path('invoice/<int:pk>',invoiceview.Invoice_view.as_view()),
+
+    path('inventory-list/',inventoryview.inventoryList.as_view()),
+    path('inventory-create/',inventoryview.inventoryCreate.as_view()),
+    path('inventory/<int:pk>',inventoryview.inventoryRetrieve.as_view()),
+    path('inventory-update/<int:pk>',inventoryview.inventoryUpdate.as_view()),
+    path('inventory-delete/<int:pk>',inventoryview.inventoryDestroy.as_view()),
 ]
