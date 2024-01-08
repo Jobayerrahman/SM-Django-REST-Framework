@@ -36,5 +36,6 @@ urlpatterns = [
     path('inventory-create/',inventoryview.inventoryCreate.as_view()),
     path('inventory/<int:pk>',inventoryview.inventoryRetrieve.as_view()),
     path('inventory-update/<int:pk>',inventoryview.inventoryUpdate.as_view()),
+    path('inventory-partial-update/<int:pk>',inventoryview.inventoryPartialUpdate.as_view()),
     path('inventory-delete/<int:pk>',inventoryview.inventoryDestroy.as_view()),
 ]

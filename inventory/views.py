@@ -31,6 +31,13 @@ class inventoryUpdate(GenericAPIView,UpdateModelMixin):
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
+
+class inventoryPartialUpdate(GenericAPIView,UpdateModelMixin):
+    queryset            = Inventory.objects.all()
+    serializer_class    = InventorySerializer
+
+    def put(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
         
 class inventoryDestroy(GenericAPIView,DestroyModelMixin):
     queryset           = Inventory.objects.all()
