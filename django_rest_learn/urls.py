@@ -21,6 +21,7 @@ from employee import views as employeeview
 from invoice import views as invoiceview
 from inventory import views as inventoryview
 from customer import views as customerview
+from investment import views as investmentview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,7 +44,10 @@ urlpatterns = [
     path('inventory-delete/<int:pk>',inventoryview.inventoryDestroy.as_view()),
 
     path('customer/',customerview.Customer_list_create.as_view()),
-    path('customer/<int:pk>',customerview.Customer_retrieve_update_destroy.as_view())
+    path('customer/<int:pk>',customerview.Customer_retrieve_update_destroy.as_view()),
+
+    path('investment/',investmentview.Investment_list_create.as_view()),
+    path('investment/<int:pk>',investmentview.Investment_retrieve_update_destroy.as_view())
 
 
 ]
