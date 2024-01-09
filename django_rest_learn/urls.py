@@ -20,15 +20,19 @@ from product import views as productview
 from employee import views as employeeview
 from invoice import views as invoiceview
 from inventory import views as inventoryview
+from customer import views as customerview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
     path('product-list/',productview.productList_view),
     path('product/<int:pk>',productview.product_view),
     path('product-create/',productview.productCreate_view),
+
     path('employee/',employeeview.employee_view),   
     path('employee/<int:pk>',employeeview.employee_view),
+
     path('invoice/',invoiceview.Invoice_view.as_view()),
     path('invoice/<int:pk>',invoiceview.Invoice_view.as_view()),
 
@@ -36,6 +40,10 @@ urlpatterns = [
     path('inventory-create/',inventoryview.inventoryCreate.as_view()),
     path('inventory/<int:pk>',inventoryview.inventoryRetrieve.as_view()),
     path('inventory-update/<int:pk>',inventoryview.inventoryUpdate.as_view()),
-    path('inventory-partial-update/<int:pk>',inventoryview.inventoryPartialUpdate.as_view()),
     path('inventory-delete/<int:pk>',inventoryview.inventoryDestroy.as_view()),
+
+    path('customer/',customerview.Customer_list_create.as_view()),
+    path('customer/<int:pk>',customerview.Customer_retrieve_update_destroy.as_view())
+
+
 ]
