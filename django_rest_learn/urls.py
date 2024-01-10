@@ -22,6 +22,11 @@ from invoice import views as invoiceview
 from inventory import views as inventoryview
 from customer import views as customerview
 from investment import views as investmentview
+from doctor import views as doctorview
+from rest_framework.routers import DefaultRouter
+
+rounter = DefaultRouter()
+rounter.register('doctor',doctorview.Doctor_view,basename='doctor')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,7 +52,7 @@ urlpatterns = [
     path('customer/<int:pk>',customerview.Customer_retrieve_update_destroy.as_view()),
 
     path('investment/',investmentview.Investment_list_create.as_view()),
-    path('investment/<int:pk>',investmentview.Investment_retrieve_update_destroy.as_view())
+    path('investment/<int:pk>',investmentview.Investment_retrieve_update_destroy.as_view()),
 
-
+    path('',include(rounter.urls))
 ]
